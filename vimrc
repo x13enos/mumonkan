@@ -37,13 +37,10 @@ syntax enable
 set tabstop=2
 set expandtab
 set shiftwidth=2
-set list
+
+set list "display unprintable characters
 set backspace=indent,eol,start
-set listchars=""
-set listchars=tab:\ \
-set listchars+=trail:.
-set listchars+=extends:>
-set listchars+=precedes:<
+set listchars=tab:»·,nbsp:·,trail:·,extends:>,precedes:<
 
 set number
 set numberwidth=7
