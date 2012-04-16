@@ -92,6 +92,11 @@ if has("statusline") && !&cp
   " Add fugitive
   set statusline+=%{fugitive#statusline()}
 
+  " display a warning if &paste is set
+  set statusline+=%#error#
+  set statusline+=%{&paste?'[paste]':''}
+  set statusline+=%*
+
   " Finish the statusline
   set statusline+=Line:%l/%L[%p%%]
   set statusline+=Col:%v
