@@ -131,5 +131,11 @@ if filereadable(".vimrc.local")
   source .vimrc.local
 endif
 
+" Rails shortcuts
+command! Rapplication :e config/application.rb
+command! Rroutes :e config/routes.rb
+command! Rschema :e db/schema.rb
+command! Rgemfile :e Gemfile
+
 " Automatically load .vimrc source when saved
 autocmd BufWritePost .vimrc source $MYVIMRC
