@@ -91,7 +91,9 @@ if has("statusline") && !&cp
   set statusline+=%f\ %m\ %r
 
   " Add rvm
-  set statusline+=%{rvm#statusline()}
+  if exists('$rvm_path')
+    set statusline+=%{rvm#statusline()}
+  endif
   " Add fugitive
   set statusline+=%{fugitive#statusline()}
 
