@@ -11,6 +11,7 @@ call vundle#rc()
 "
 " original repos on github
 Bundle 'gmarik/vundle'
+Bundle 'vim-scripts/Decho'
 Bundle 'kien/ctrlp.vim'
 Bundle 'romanvbabenko/rails.vim'
 Bundle 'tComment'
