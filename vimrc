@@ -36,6 +36,16 @@ Bundle "wgibbs/vim-irblack"
 filetype plugin indent on     " required!
 syntax enable
 
+" http://serverfault.com/questions/130632/problems-with-vim-locale-as-non-root-user-on-solaris
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8 bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
+
 set tabstop=2
 set expandtab
 set shiftwidth=2
