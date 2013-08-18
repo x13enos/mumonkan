@@ -19,6 +19,7 @@ Bundle 'romanvbabenko/snipmate.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rvm'
 Bundle "scrooloose/syntastic"
+Bundle "tpope/vim-surround"
 
 " non github repos
 Bundle "git://github.com/timcharper/textile.vim.git"
@@ -32,6 +33,13 @@ Bundle "git://github.com/t9md/vim-chef.git"
 Bundle "romanvbabenko/vim-asciidoc"
 
 Bundle "wgibbs/vim-irblack"
+Bundle "git://github.com/altercation/vim-colors-solarized.git"
+Bundle "git@github.com:scrooloose/nerdtree.git"
+Bundle "git@github.com:slim-template/vim-slim.git"
+Bundle "taglist"
+Bundle "git://github.com/thoughtbot/vim-rspec"
+Bundle "git@github.com:kchmck/vim-coffee-script.git"
+Bundle 'git@github.com:tpope/vim-pastie.git'
 
 filetype plugin indent on     " required!
 syntax enable
@@ -79,7 +87,8 @@ set wildmode=list:longest,full
 
 "TODO should be handle exception if colorscheme not exists
 try
- colorscheme ir_black " koehler
+ colorscheme solarized "ir_black koehler
+ set background=light
 catch " /^Vim:E121/
   colorscheme default
 endtry
@@ -98,7 +107,7 @@ if has("statusline") && !&cp
 
   " Start the status line
 
-  set statusline=%{hostname()}: 
+  set statusline=%{hostname()}:
   set statusline+=%f\ %m\ %r
 
   " Add rvm
@@ -136,8 +145,8 @@ map <leader>l :bp<esc>
 
 "Colorscheme hotfix
 
-hi Pmenu      ctermfg=lightgray   ctermbg=darkgray    cterm=NONE
-hi PmenuSel   ctermfg=black       ctermbg=lightgray   cterm=NONE
+"hi Pmenu      ctermfg=lightgray   ctermbg=darkgray    cterm=NONE
+"hi PmenuSel   ctermfg=black       ctermbg=lightgray   cterm=NONE
 
 " Local config
 if filereadable(".vimrc.local")
@@ -152,3 +161,19 @@ command! Rgemfile :e Gemfile
 
 " Automatically load .vimrc source when saved
 autocmd BufWritePost .vimrc source $MYVIMRC
+
+set guifont=Monaco:h13
+let Tlist_WinWidth = 40
+nnoremap <silent> <F12> :TlistToggle<CR>
+nnoremap <silent> <F2> :NERDTreeToggle<CR>
+nnoremap <silent> <F3> :noh<CR>
+nnoremap <silent> <F4> :Ztest<CR>
+
+set colorcolumn=120
+highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+let g:NERDTreeWinSize = 40
+
+let g:rspec_command = "!zeus test {spec}"
+command Ztest :call RunCurrentSpecFile()
+
+let g:solarized_contrast = "high"
