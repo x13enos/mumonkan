@@ -9,7 +9,7 @@ call vundle#rc()
 "
 " My Bundles here:
 "
-" original repos on github
+"" original repos on github
 Bundle 'gmarik/vundle'
 Bundle 'vim-scripts/Decho'
 Bundle 'kien/ctrlp.vim'
@@ -26,17 +26,15 @@ Bundle "git://github.com/timcharper/textile.vim.git"
 Bundle "git://github.com/tpope/vim-markdown.git"
 Bundle "git://github.com/jinfield/vim-nginx.git"
 Bundle "git://github.com/tpope/vim-haml.git"
-Bundle "git://github.com/bbommarito/vim-slim.git"
 Bundle "git://github.com/leshill/vim-json.git"
 Bundle "git://github.com/tmatilai/vim-monit.git"
 Bundle "git://github.com/t9md/vim-chef.git"
 Bundle "romanvbabenko/vim-asciidoc"
 
-Bundle "wgibbs/vim-irblack"
 Bundle "git://github.com/altercation/vim-colors-solarized.git"
 Bundle "git@github.com:scrooloose/nerdtree.git"
 Bundle "git@github.com:slim-template/vim-slim.git"
-Bundle "taglist"
+Bundle "git@github.com:kryachkov/taglist.vim.git"
 Bundle "git://github.com/thoughtbot/vim-rspec"
 Bundle "git@github.com:kchmck/vim-coffee-script.git"
 Bundle 'git@github.com:tpope/vim-pastie.git'
@@ -50,8 +48,8 @@ if has("multi_byte")
     let &termencoding = &encoding
   endif
   set encoding=utf-8
-  setglobal fileencoding=utf-8 bomb
-  set fileencodings=ucs-bom,utf-8,latin1
+  setglobal fileencoding=utf-8
+  set fileencodings=utf-8
 endif
 
 set tabstop=2
