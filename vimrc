@@ -15,7 +15,6 @@ Bundle 'vim-scripts/Decho'
 Bundle 'kien/ctrlp.vim'
 Bundle 'romanvbabenko/rails.vim'
 Bundle 'tComment'
-Bundle 'romanvbabenko/snipmate.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rvm'
 Bundle "scrooloose/syntastic"
@@ -38,6 +37,12 @@ Bundle "git@github.com:kryachkov/taglist.vim.git"
 Bundle "git://github.com/thoughtbot/vim-rspec"
 Bundle "git@github.com:kchmck/vim-coffee-script.git"
 Bundle 'git@github.com:tpope/vim-pastie.git'
+
+" Snippets support
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
 
 filetype plugin indent on     " required!
 syntax enable
@@ -86,7 +91,7 @@ set wildmode=list:longest,full
 "TODO should be handle exception if colorscheme not exists
 try
  colorscheme solarized "ir_black koehler
- set background=light
+ set background=dark
 catch " /^Vim:E121/
   colorscheme default
 endtry
