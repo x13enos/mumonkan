@@ -30,13 +30,13 @@ Bundle "git://github.com/tmatilai/vim-monit.git"
 Bundle "git://github.com/t9md/vim-chef.git"
 Bundle "romanvbabenko/vim-asciidoc"
 
-Bundle "git://github.com/altercation/vim-colors-solarized.git"
-Bundle "git@github.com:scrooloose/nerdtree.git"
-Bundle "git@github.com:slim-template/vim-slim.git"
-Bundle "git@github.com:kryachkov/taglist.vim.git"
-Bundle "git://github.com/thoughtbot/vim-rspec"
-Bundle "git@github.com:kchmck/vim-coffee-script.git"
-Bundle 'git@github.com:tpope/vim-pastie.git'
+Bundle "altercation/vim-colors-solarized.git"
+Bundle "scrooloose/nerdtree.git"
+Bundle "slim-template/vim-slim.git"
+Bundle "kryachkov/taglist.vim.git"
+Bundle "thoughtbot/vim-rspec"
+Bundle "kchmck/vim-coffee-script.git"
+Bundle 'tpope/vim-pastie.git'
 
 " Snippets support
 Bundle "MarcWeber/vim-addon-mw-utils"
