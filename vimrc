@@ -30,19 +30,21 @@ Bundle "git://github.com/tmatilai/vim-monit.git"
 Bundle "git://github.com/t9md/vim-chef.git"
 Bundle "romanvbabenko/vim-asciidoc"
 
-Bundle "altercation/vim-colors-solarized.git"
-Bundle "scrooloose/nerdtree.git"
-Bundle "slim-template/vim-slim.git"
-Bundle "kryachkov/taglist.vim.git"
-Bundle "thoughtbot/vim-rspec"
-Bundle "kchmck/vim-coffee-script.git"
-Bundle 'tpope/vim-pastie.git'
+Bundle "git://github.com/altercation/vim-colors-solarized.git"
+Bundle "git://github.com/scrooloose/nerdtree.git"
+Bundle "git://github.com/slim-template/vim-slim.git"
+Bundle "git://github.com/thoughtbot/vim-rspec"
+Bundle "git://github.com/kchmck/vim-coffee-script.git"
+Bundle 'git://github.com/tpope/vim-pastie.git'
 
 " Snippets support
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
+
+Bundle 'bkad/CamelCaseMotion'
+Bundle 'majutsushi/tagbar'
 
 filetype plugin indent on     " required!
 syntax enable
@@ -144,7 +146,7 @@ endfunc
 
 nnoremap <c-l> :bp <cr>
 let mapleader = "\\"
-map <leader>l :bp<esc>
+map <leader>l :bp<esc> 
 
 "Colorscheme hotfix
 
@@ -166,8 +168,7 @@ command! Rgemfile :e Gemfile
 autocmd BufWritePost .vimrc source $MYVIMRC
 
 set guifont=Monaco:h13
-let Tlist_WinWidth = 40
-nnoremap <silent> <F12> :TlistToggle<CR>
+nnoremap <silent> <F12> :TagbarToggle<CR>
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 nnoremap <silent> <F3> :noh<CR>
 nnoremap <silent> <F4> :Ztest<CR>
@@ -180,3 +181,13 @@ let g:rspec_command = "!zeus test {spec}"
 command Ztest :call RunCurrentSpecFile()
 
 let g:solarized_contrast = "high"
+
+map w <Plug>CamelCaseMotion_w
+map b <Plug>CamelCaseMotion_b
+map e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+
+let g:tagbar_left = 1
+let g:tagbar_width = 40
