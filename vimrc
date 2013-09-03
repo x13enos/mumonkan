@@ -182,7 +182,7 @@ highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 let g:NERDTreeWinSize = 40
 
 let g:rspec_command = "!zeus test {spec}"
-command Ztest :call RunCurrentSpecFile()
+command! Ztest :call RunCurrentSpecFile()
 
 let g:solarized_contrast = "high"
 
@@ -195,3 +195,5 @@ sunmap e
 
 let g:tagbar_left = 1
 let g:tagbar_width = 40
+
+call togglebg#map("<F5>")
