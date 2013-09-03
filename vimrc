@@ -163,6 +163,10 @@ command! Rapplication :e config/application.rb
 command! Rroutes :e config/routes.rb
 command! Rschema :e db/schema.rb
 command! Rgemfile :e Gemfile
+command! RTapplication :tabnew config/application.rb
+command! RTroutes :tabnew config/routes.rb
+command! RTschema :tabnew db/schema.rb
+command! RTgemfile :tabnew Gemfile
 
 " Automatically load .vimrc source when saved
 autocmd BufWritePost .vimrc source $MYVIMRC
