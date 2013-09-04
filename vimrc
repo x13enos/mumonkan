@@ -186,14 +186,15 @@ command! Ztest :call RunCurrentSpecFile()
 
 let g:solarized_contrast = "high"
 
-map w <Plug>CamelCaseMotion_w
-map b <Plug>CamelCaseMotion_b
-map e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
+" map w <Plug>CamelCaseMotion_w
+" map b <Plug>CamelCaseMotion_b
+" map e <Plug>CamelCaseMotion_e
+" sunmap w
+" sunmap b
+" sunmap e
 
 let g:tagbar_left = 1
 let g:tagbar_width = 40
+let g:tagbar_autofocus = 1
 
 call togglebg#map("<F5>")
