@@ -46,6 +46,8 @@ Bundle 'honza/vim-snippets'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'majutsushi/tagbar'
 
+Bundle 'Townk/vim-autoclose'
+
 filetype plugin indent on     " required!
 syntax enable
 
