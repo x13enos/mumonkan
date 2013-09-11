@@ -200,3 +200,8 @@ let g:tagbar_width = 40
 let g:tagbar_autofocus = 1
 
 call togglebg#map("<F5>")
+
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
