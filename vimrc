@@ -205,3 +205,8 @@ map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
+
+if version >= 700
+  au InsertEnter * hi StatusLine ctermfg=46 ctermbg=235
+  au InsertLeave * hi StatusLine ctermbg=235 ctermfg=245
+endif
