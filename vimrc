@@ -148,7 +148,7 @@ endfunc
 
 nnoremap <c-l> :bp <cr>
 let mapleader = "\\"
-map <leader>l :bp<esc> 
+map <leader>l :bp<esc>
 
 "Colorscheme hotfix
 
@@ -207,6 +207,10 @@ map <Up> <Nop>
 map <Down> <Nop>
 
 if version >= 700
-  au InsertEnter * hi StatusLine ctermfg=46 ctermbg=235
-  au InsertLeave * hi StatusLine ctermbg=235 ctermfg=245
+    " for light theme
+    au InsertEnter * hi StatusLine ctermbg=235 ctermfg=46
+    au InsertLeave * hi StatusLine ctermbg=15 ctermfg=8
 endif
+
+set ttimeoutlen=100 " decrease timeout for faster insert with 'O' "
+set scrolloff=2
