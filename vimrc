@@ -35,7 +35,6 @@ Bundle "git://github.com/scrooloose/nerdtree.git"
 Bundle "git://github.com/slim-template/vim-slim.git"
 Bundle "git://github.com/thoughtbot/vim-rspec"
 Bundle "git://github.com/kchmck/vim-coffee-script.git"
-Bundle 'git://github.com/tpope/vim-pastie.git'
 
 " Snippets support
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -47,6 +46,8 @@ Bundle 'bkad/CamelCaseMotion'
 Bundle 'majutsushi/tagbar'
 
 Bundle 'Townk/vim-autoclose'
+
+Bundle 'chriskempson/base16-vim'
 
 filetype plugin indent on     " required!
 syntax enable
@@ -94,7 +95,7 @@ set wildmode=list:longest,full
 
 "TODO should be handle exception if colorscheme not exists
 try
- colorscheme solarized "ir_black koehler
+ colorscheme base16-railscasts "solarized ir_black koehler
  set background=dark
 catch " /^Vim:E121/
   colorscheme default
@@ -173,20 +174,18 @@ command! RTgemfile :tabnew Gemfile
 " Automatically load .vimrc source when saved
 autocmd BufWritePost .vimrc source $MYVIMRC
 
-set guifont=Monaco:h13
 nnoremap <silent> <F12> :TagbarToggle<CR>
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 nnoremap <silent> <F3> :noh<CR>
 nnoremap <silent> <F4> :Ztest<CR>
+nnoremap <silent> <F6> :! ripper-tags -R .<CR>
 
 set colorcolumn=120
-highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+highlight ColorColumn ctermbg=242 guibg=242
 let g:NERDTreeWinSize = 40
 
 let g:rspec_command = "!zeus test {spec}"
 command! Ztest :call RunCurrentSpecFile()
-
-let g:solarized_contrast = "high"
 
 " map w <Plug>CamelCaseMotion_w
 " map b <Plug>CamelCaseMotion_b
@@ -199,7 +198,7 @@ let g:tagbar_left = 1
 let g:tagbar_width = 40
 let g:tagbar_autofocus = 1
 
-call togglebg#map("<F5>")
+" call togglebg#map("<F5>")
 
 map <Left> <Nop>
 map <Right> <Nop>
@@ -208,9 +207,19 @@ map <Down> <Nop>
 
 if version >= 700
     " for light theme
-    au InsertEnter * hi StatusLine ctermbg=235 ctermfg=46
-    au InsertLeave * hi StatusLine ctermbg=15 ctermfg=8
+    au InsertEnter * hi StatusLine ctermbg=46 ctermfg=235
+    au InsertLeave * hi StatusLine ctermbg=235 ctermfg=white
 endif
 
 set ttimeoutlen=100 " decrease timeout for faster insert with 'O' "
 set scrolloff=2
+set shell=/bin/sh
+set term=screen-256color
+set wildignore+=*/tmp/*,*/coverage/*,*/log/*,*/bin/*,tags
+
+set cursorline
+set cursorcolumn
+:hi CursorLine   cterm=NONE ctermbg=236 "ctermfg=white guibg=darkred guifg=white
+:hi CursorColumn   cterm=NONE ctermbg=236 "ctermfg=white guibg=darkred guifg=white
+noremap <Leader>cl :set cursorline!<CR>
+noremap <Leader>cc :set cursorcolumn!<CR>
