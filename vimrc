@@ -21,20 +21,19 @@ Bundle "scrooloose/syntastic"
 Bundle "tpope/vim-surround"
 
 " non github repos
-Bundle "git://github.com/timcharper/textile.vim.git"
-Bundle "git://github.com/tpope/vim-markdown.git"
-Bundle "git://github.com/jinfield/vim-nginx.git"
-Bundle "git://github.com/tpope/vim-haml.git"
-Bundle "git://github.com/leshill/vim-json.git"
-Bundle "git://github.com/tmatilai/vim-monit.git"
-Bundle "git://github.com/t9md/vim-chef.git"
+Bundle "timcharper/textile.vim.git"
+Bundle "tpope/vim-markdown.git"
+Bundle "jinfield/vim-nginx.git"
+Bundle "tpope/vim-haml.git"
+Bundle "leshill/vim-json.git"
+Bundle "tmatilai/vim-monit.git"
+Bundle "t9md/vim-chef.git"
 Bundle "romanvbabenko/vim-asciidoc"
 
-Bundle "git://github.com/altercation/vim-colors-solarized.git"
-Bundle "git://github.com/scrooloose/nerdtree.git"
-Bundle "git://github.com/slim-template/vim-slim.git"
-Bundle "git://github.com/thoughtbot/vim-rspec"
-Bundle "git://github.com/kchmck/vim-coffee-script.git"
+Bundle "scrooloose/nerdtree.git"
+Bundle "slim-template/vim-slim.git"
+Bundle "thoughtbot/vim-rspec"
+Bundle "kchmck/vim-coffee-script.git"
 
 " Snippets support
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -47,7 +46,10 @@ Bundle 'majutsushi/tagbar'
 
 Bundle 'Townk/vim-autoclose'
 
+" Coloschemes
 Bundle 'chriskempson/base16-vim'
+Bundle "wgibbs/vim-irblack"
+Bundle "altercation/vim-colors-solarized"
 
 filetype plugin indent on     " required!
 syntax enable
@@ -95,8 +97,7 @@ set wildmode=list:longest,full
 
 "TODO should be handle exception if colorscheme not exists
 try
- colorscheme base16-railscasts "solarized ir_black koehler
- set background=dark
+ colorscheme default base16-railscasts solarized ir_black koehler
 catch " /^Vim:E121/
   colorscheme default
 endtry
@@ -223,3 +224,4 @@ set cursorcolumn
 :hi CursorColumn   cterm=NONE ctermbg=236 "ctermfg=white guibg=darkred guifg=white
 noremap <Leader>cl :set cursorline!<CR>
 noremap <Leader>cc :set cursorcolumn!<CR>
+
