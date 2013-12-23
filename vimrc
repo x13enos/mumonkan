@@ -45,6 +45,7 @@ Bundle 'bkad/CamelCaseMotion'
 Bundle 'majutsushi/tagbar'
 
 Bundle 'Townk/vim-autoclose'
+Bundle 'terryma/vim-multiple-cursors'
 
 " Coloschemes
 Bundle 'chriskempson/base16-vim'
@@ -94,13 +95,6 @@ set wildmode=list:longest,full
 
 " Copy indent from current line when starting a new line
 "set autoindent
-
-"TODO should be handle exception if colorscheme not exists
-try
- colorscheme default base16-railscasts solarized ir_black koehler
-catch " /^Vim:E121/
-  colorscheme default
-endtry
 
 " Automatically removing all trailing whitespace
 autocmd BufWritePre *.rb :%s/\s\+$//e
@@ -152,14 +146,9 @@ nnoremap <c-l> :bp <cr>
 let mapleader = "\\"
 map <leader>l :bp<esc>
 
-"Colorscheme hotfix
-
-"hi Pmenu      ctermfg=lightgray   ctermbg=darkgray    cterm=NONE
-"hi PmenuSel   ctermfg=black       ctermbg=lightgray   cterm=NONE
-
 " Local config
-if filereadable(".vimrc.local")
-  source .vimrc.local
+if exists('$HOME/.vimrc.local')
+  source ~/.vimrc.local
 endif
 
 " Rails shortcuts
@@ -182,35 +171,19 @@ nnoremap <silent> <F4> :Ztest<CR>
 nnoremap <silent> <F6> :! ripper-tags -R .<CR>
 
 set colorcolumn=120
-highlight ColorColumn ctermbg=242 guibg=242
 let g:NERDTreeWinSize = 40
 
 let g:rspec_command = "!zeus test {spec}"
 command! Ztest :call RunCurrentSpecFile()
 
-" map w <Plug>CamelCaseMotion_w
-" map b <Plug>CamelCaseMotion_b
-" map e <Plug>CamelCaseMotion_e
-" sunmap w
-" sunmap b
-" sunmap e
-
 let g:tagbar_left = 1
 let g:tagbar_width = 40
 let g:tagbar_autofocus = 1
-
-" call togglebg#map("<F5>")
 
 map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
-
-if version >= 700
-    " for light theme
-    au InsertEnter * hi StatusLine ctermbg=46 ctermfg=235
-    au InsertLeave * hi StatusLine ctermbg=235 ctermfg=white
-endif
 
 set ttimeoutlen=100 " decrease timeout for faster insert with 'O' "
 set scrolloff=2
@@ -220,8 +193,6 @@ set wildignore+=*/tmp/*,*/coverage/*,*/log/*,*/bin/*,tags
 
 set cursorline
 set cursorcolumn
-:hi CursorLine   cterm=NONE ctermbg=236 "ctermfg=white guibg=darkred guifg=white
-:hi CursorColumn   cterm=NONE ctermbg=236 "ctermfg=white guibg=darkred guifg=white
 noremap <Leader>cl :set cursorline!<CR>
 noremap <Leader>cc :set cursorcolumn!<CR>
 
