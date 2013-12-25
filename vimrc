@@ -173,7 +173,6 @@ nnoremap <silent> <F6> :! ripper-tags -R .<CR>
 set colorcolumn=120
 let g:NERDTreeWinSize = 40
 
-let g:rspec_command = "!zeus test {spec}"
 command! Ztest :call RunCurrentSpecFile()
 
 let g:tagbar_left = 1
