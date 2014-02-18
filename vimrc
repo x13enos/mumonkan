@@ -52,6 +52,8 @@ Bundle 'chriskempson/base16-vim'
 Bundle "wgibbs/vim-irblack"
 Bundle "altercation/vim-colors-solarized"
 
+Bundle 'rking/ag.vim'
+
 filetype plugin indent on     " required!
 syntax enable
 
@@ -194,4 +196,3 @@ set cursorline
 set cursorcolumn
 noremap <Leader>cl :set cursorline!<CR>
 noremap <Leader>cc :set cursorcolumn!<CR>
-
