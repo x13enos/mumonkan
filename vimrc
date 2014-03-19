@@ -170,7 +170,7 @@ nnoremap <silent> <F12> :TagbarToggle<CR>
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 nnoremap <silent> <F3> :noh<CR>
 nnoremap <silent> <F4> :Ztest<CR>
-nnoremap <silent> <F6> :! ripper-tags -R .<CR>
+nnoremap <silent> <F6> :! bundle exec ripper-tags -R .<CR>
 
 set colorcolumn=120
 let g:NERDTreeWinSize = 40
@@ -190,9 +190,9 @@ set ttimeoutlen=100 " decrease timeout for faster insert with 'O' "
 set scrolloff=2
 set shell=/bin/sh
 set term=screen-256color
-set wildignore+=*/tmp/*,*/coverage/*,*/log/*,*/bin/*,tags
+set wildignore+=*/tmp/*,*/coverage/*,*/log/*,*/bin/*,tags,*/spec/reports/*
 
-set cursorline
-set cursorcolumn
+" set cursorline
+" set cursorcolumn
 noremap <Leader>cl :set cursorline!<CR>
 noremap <Leader>cc :set cursorcolumn!<CR>
