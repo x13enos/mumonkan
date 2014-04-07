@@ -34,6 +34,7 @@ Bundle "scrooloose/nerdtree.git"
 Bundle "slim-template/vim-slim.git"
 Bundle "thoughtbot/vim-rspec"
 Bundle "kchmck/vim-coffee-script.git"
+Bundle "ngmy/vim-rubocop"
 
 " Snippets support
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -99,7 +100,7 @@ set wildmode=list:longest,full
 "set autoindent
 
 " Automatically removing all trailing whitespace
-autocmd BufWritePre *.rb :%s/\s\+$//e
+autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
 
 " File types autodetection
 autocmd BufNewFile,BufRead *.txt setfiletype text
