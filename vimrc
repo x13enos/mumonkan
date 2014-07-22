@@ -52,10 +52,11 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'chriskempson/base16-vim'
 Bundle "wgibbs/vim-irblack"
 Bundle "altercation/vim-colors-solarized"
+Bundle 'nelstrom/vim-mac-classic-theme'
 
 Bundle 'rking/ag.vim'
+
 Bundle 'tmhedberg/matchit'
-Bundle 'ecomba/vim-ruby-refactoring'
 
 filetype plugin indent on     " required!
 syntax enable
@@ -199,3 +200,6 @@ set wildignore+=*/tmp/*,*/coverage/*,*/log/*,*/bin/*,tags,*/spec/reports/*
 " set cursorcolumn
 noremap <Leader>cl :set cursorline!<CR>
 noremap <Leader>cc :set cursorcolumn!<CR>
+
+noremap <s-h> gT
+noremap <s-l> gt
