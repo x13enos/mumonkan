@@ -53,10 +53,13 @@ Bundle 'chriskempson/base16-vim'
 Bundle "wgibbs/vim-irblack"
 Bundle "altercation/vim-colors-solarized"
 Bundle 'nelstrom/vim-mac-classic-theme'
+Bundle 'jpo/vim-railscasts-theme'
 
 Bundle 'rking/ag.vim'
 
 Bundle 'tmhedberg/matchit'
+Bundle 'git@github.com:ekalinin/Dockerfile.vim.git'
+Bundle 'rizzatti/dash.vim'
 
 filetype plugin indent on     " required!
 syntax enable
@@ -203,3 +206,5 @@ noremap <Leader>cc :set cursorcolumn!<CR>
 
 noremap <s-h> gT
 noremap <s-l> gt
+
+nmap <silent> <leader>k <Plug>DashSearch
