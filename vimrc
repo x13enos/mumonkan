@@ -177,6 +177,7 @@ nnoremap <silent> <F12> :TagbarToggle<CR>
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 nnoremap <silent> <F3> :noh<CR>
 nnoremap <silent> <Leader>t :w\|:Ztest<CR>
+nnoremap <silent> <Leader>r :w\|:call RunNearestSpec()<CR>
 nnoremap <silent> <F6> :! bundle exec ripper-tags -R .<CR>
 
 set colorcolumn=120
