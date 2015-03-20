@@ -51,9 +51,6 @@ Bundle 'terryma/vim-multiple-cursors'
 " Coloschemes
 Bundle 'chriskempson/base16-vim'
 Bundle "wgibbs/vim-irblack"
-Bundle "altercation/vim-colors-solarized"
-Bundle 'nelstrom/vim-mac-classic-theme'
-Bundle 'jpo/vim-railscasts-theme'
 
 Bundle 'rking/ag.vim'
 
@@ -95,6 +92,8 @@ set incsearch
 set ignorecase
 set smartcase
 
+set paste
+
 "Autocomplete mode
 set wildmenu
 " bash style
@@ -119,7 +118,7 @@ if has("statusline") && !&cp
 
   " Start the status line
 
-  set statusline=%{hostname()}:
+  " set statusline=%{hostname()}:
   set statusline+=%f\ %m\ %r
 
   " Add rvm
@@ -130,7 +129,7 @@ if has("statusline") && !&cp
   set statusline+=%{fugitive#statusline()}
 
   " display a warning if &paste is set
-  set statusline+=%#error#
+  " set statusline+=%#error#
   set statusline+=%{&paste?'[paste]':''}
   set statusline+=%*
 
@@ -209,3 +208,6 @@ noremap <s-h> gT
 noremap <s-l> gt
 
 nmap <silent> <leader>k <Plug>DashSearch
+
+xnoremap <Tab> >gv
+xnoremap <S-Tab> <gv
