@@ -57,6 +57,7 @@ Bundle 'rking/ag.vim'
 Bundle 'tmhedberg/matchit'
 Bundle 'git@github.com:ekalinin/Dockerfile.vim.git'
 Bundle 'rizzatti/dash.vim'
+Bundle "ConradIrwin/vim-bracketed-paste"
 
 filetype plugin indent on     " required!
 syntax enable
@@ -91,8 +92,6 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-
-set paste
 
 "Autocomplete mode
 set wildmenu
