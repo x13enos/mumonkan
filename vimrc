@@ -11,7 +11,6 @@ call vundle#rc()
 "
 "" original repos on github
 Bundle 'gmarik/vundle'
-Bundle 'vim-scripts/Decho'
 Bundle 'kien/ctrlp.vim'
 Bundle 'romanvbabenko/rails.vim'
 Bundle 'tComment'
@@ -21,14 +20,10 @@ Bundle "scrooloose/syntastic"
 Bundle "tpope/vim-surround"
 
 " non github repos
-Bundle "timcharper/textile.vim.git"
 Bundle "tpope/vim-markdown.git"
 Bundle "jinfield/vim-nginx.git"
-Bundle "tpope/vim-haml.git"
 Bundle "leshill/vim-json.git"
 Bundle "tmatilai/vim-monit.git"
-Bundle "t9md/vim-chef.git"
-Bundle "romanvbabenko/vim-asciidoc"
 
 Bundle "scrooloose/nerdtree.git"
 Bundle "slim-template/vim-slim.git"
@@ -45,19 +40,16 @@ Bundle 'honza/vim-snippets'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'majutsushi/tagbar'
 
-Bundle 'Townk/vim-autoclose'
-Bundle 'terryma/vim-multiple-cursors'
+" Bundle 'Townk/vim-autoclose'
 
 " Coloschemes
 Bundle 'chriskempson/base16-vim'
-Bundle "wgibbs/vim-irblack"
 
 Bundle 'rking/ag.vim'
 
 Bundle 'tmhedberg/matchit'
-Bundle 'git@github.com:ekalinin/Dockerfile.vim.git'
-Bundle 'rizzatti/dash.vim'
 Bundle "ConradIrwin/vim-bracketed-paste"
+Bundle 'elixir-lang/vim-elixir'
 
 filetype plugin indent on     " required!
 syntax enable
@@ -178,7 +170,7 @@ nnoremap <silent> <Leader>t :w\|:Ztest<CR>
 nnoremap <silent> <Leader>r :w\|:call RunNearestSpec()<CR>
 nnoremap <silent> <F6> :! bundle exec ripper-tags -R .<CR>
 
-set colorcolumn=120
+" set colorcolumn=80
 let g:NERDTreeWinSize = 40
 
 command! Ztest :call RunCurrentSpecFile()
@@ -187,16 +179,11 @@ let g:tagbar_left = 1
 let g:tagbar_width = 40
 let g:tagbar_autofocus = 1
 
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
-
 set ttimeoutlen=100 " decrease timeout for faster insert with 'O' "
 set scrolloff=2
 set shell=/bin/sh
 set term=screen-256color
-set wildignore+=*/tmp/*,*/coverage/*,*/log/*,*/bin/*,tags,*/spec/reports/*
+set wildignore+=*/tmp/*,*/coverage/*,*/log/*,*/bin/*,tags,*/spec/reports/*,*/.git/*,*/app/assets/images/*,*/public/system/*,*/public/assets/*,bin/*
 
 " set cursorline
 " set cursorcolumn
@@ -205,8 +192,6 @@ noremap <Leader>cc :set cursorcolumn!<CR>
 
 noremap <s-h> gT
 noremap <s-l> gt
-
-nmap <silent> <leader>k <Plug>DashSearch
 
 xnoremap <Tab> >gv
 xnoremap <S-Tab> <gv
