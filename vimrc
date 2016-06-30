@@ -40,7 +40,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'majutsushi/tagbar'
 
-" Bundle 'Townk/vim-autoclose'
+Bundle 'Townk/vim-autoclose'
 
 " Coloschemes
 Bundle 'chriskempson/base16-vim'
@@ -50,6 +50,8 @@ Bundle 'rking/ag.vim'
 Bundle 'tmhedberg/matchit'
 Bundle "ConradIrwin/vim-bracketed-paste"
 Bundle 'elixir-lang/vim-elixir'
+
+Bundle 'tpope/vim-dispatch'
 
 filetype plugin indent on     " required!
 syntax enable
@@ -73,6 +75,7 @@ set backspace=indent,eol,start
 set listchars=tab:»·,nbsp:·,trail:·,extends:>,precedes:<
 
 set number
+set rnu
 set numberwidth=7
 
 set ruler
@@ -91,6 +94,9 @@ set wildmenu
 "set wildmode=longest,list
 " zsh style
 set wildmode=list:longest,full
+
+set splitbelow
+set splitright
 
 " Copy indent from current line when starting a new line
 "set autoindent
@@ -113,9 +119,9 @@ if has("statusline") && !&cp
   set statusline+=%f\ %m\ %r
 
   " Add rvm
-  if exists('$rvm_path')
-    set statusline+=%{rvm#statusline()}
-  endif
+  " if exists('$rvm_path')
+  "   set statusline+=%{rvm#statusline()}
+  " endif
   " Add fugitive
   set statusline+=%{fugitive#statusline()}
 
@@ -182,7 +188,7 @@ let g:tagbar_autofocus = 1
 set ttimeoutlen=100 " decrease timeout for faster insert with 'O' "
 set scrolloff=2
 set shell=/bin/sh
-set term=screen-256color
+" set term=screen-256color
 set wildignore+=*/tmp/*,*/coverage/*,*/log/*,*/bin/*,tags,*/spec/reports/*,*/.git/*,*/app/assets/images/*,*/public/system/*,*/public/assets/*,bin/*
 
 " set cursorline
@@ -195,3 +201,5 @@ noremap <s-l> gt
 
 xnoremap <Tab> >gv
 xnoremap <S-Tab> <gv
+
+call camelcasemotion#CreateMotionMappings('<leader>')
