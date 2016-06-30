@@ -1,7 +1,7 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.config/nvim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
@@ -16,16 +16,13 @@ Bundle 'romanvbabenko/rails.vim'
 Bundle 'tComment'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rvm'
-Bundle "scrooloose/syntastic"
+" Bundle "scrooloose/syntastic"
 Bundle "tpope/vim-surround"
 
 " non github repos
 Bundle "tpope/vim-markdown.git"
-Bundle "jinfield/vim-nginx.git"
 Bundle "leshill/vim-json.git"
-Bundle "tmatilai/vim-monit.git"
 
-Bundle "scrooloose/nerdtree.git"
 Bundle "slim-template/vim-slim.git"
 Bundle "thoughtbot/vim-rspec"
 Bundle "kchmck/vim-coffee-script.git"
@@ -52,6 +49,7 @@ Bundle "ConradIrwin/vim-bracketed-paste"
 Bundle 'elixir-lang/vim-elixir'
 
 Bundle 'tpope/vim-dispatch'
+Bundle 'neomake/neomake'
 
 filetype plugin indent on     " required!
 syntax enable
@@ -97,6 +95,7 @@ set wildmode=list:longest,full
 
 set splitbelow
 set splitright
+  
 
 " Copy indent from current line when starting a new line
 "set autoindent
@@ -108,6 +107,8 @@ autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
 autocmd BufNewFile,BufRead *.txt setfiletype text
 autocmd BufNewFile,BufRead Gemfile,Guardfile,Vagrantfile,Procfile,Rakefile setfiletype ruby
 autocmd FileType text,markdown,html,xhtml,eruby,asc,slim setlocal wrap linebreak nolist
+
+autocmd! BufWritePost * Neomake
 
 " Statusline
 if has("statusline") && !&cp
@@ -137,24 +138,9 @@ if has("statusline") && !&cp
   set statusline+=[%b][0x%B]
 endif
 
-" Show syntax highlighting groups for word under cursor
-" nmap <C-S-P> :call <SID>SynStack()<CR>
-nmap <C-S-H> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-
 nnoremap <c-l> :bp <cr>
 let mapleader = "\\"
 map <leader>l :bp<esc>
-
-" Local config
-if exists('$HOME/.vimrc.local')
-  source ~/.vimrc.local
-endif
 
 " Rails shortcuts
 command! Rapplication :e config/application.rb
@@ -167,17 +153,13 @@ command! RTschema :tabnew db/schema.rb
 command! RTgemfile :tabnew Gemfile
 
 " Automatically load .vimrc source when saved
-autocmd BufWritePost .vimrc source $MYVIMRC
+" autocmd BufWritePost .vimrc source $MYVIMRC
 
 nnoremap <silent> <F12> :TagbarToggle<CR>
-nnoremap <silent> <F2> :NERDTreeToggle<CR>
 nnoremap <silent> <F3> :noh<CR>
 nnoremap <silent> <Leader>t :w\|:Ztest<CR>
 nnoremap <silent> <Leader>r :w\|:call RunNearestSpec()<CR>
 nnoremap <silent> <F6> :! bundle exec ripper-tags -R .<CR>
-
-" set colorcolumn=80
-let g:NERDTreeWinSize = 40
 
 command! Ztest :call RunCurrentSpecFile()
 
@@ -188,11 +170,8 @@ let g:tagbar_autofocus = 1
 set ttimeoutlen=100 " decrease timeout for faster insert with 'O' "
 set scrolloff=2
 set shell=/bin/sh
-" set term=screen-256color
 set wildignore+=*/tmp/*,*/coverage/*,*/log/*,*/bin/*,tags,*/spec/reports/*,*/.git/*,*/app/assets/images/*,*/public/system/*,*/public/assets/*,bin/*
 
-" set cursorline
-" set cursorcolumn
 noremap <Leader>cl :set cursorline!<CR>
 noremap <Leader>cc :set cursorcolumn!<CR>
 
@@ -203,3 +182,17 @@ xnoremap <Tab> >gv
 xnoremap <S-Tab> <gv
 
 call camelcasemotion#CreateMotionMappings('<leader>')
+
+let g:rspec_command = "Dispatch rspec --format d {spec}"
+
+let g:vimrubocop_config = './.rubocop.yml'
+let g:vimrubocop_extra_args = '--rails'
+
+set mouse=""
+let g:netrw_liststyle=3
+
+colorscheme default
+set background=dark
+set re=1
+
+let g:markdown_fenced_languages = ['html', 'javascript', 'ruby', 'bash=sh']
