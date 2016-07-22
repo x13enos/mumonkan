@@ -12,7 +12,7 @@ call vundle#rc()
 "" original repos on github
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
-Bundle 'romanvbabenko/rails.vim'
+" Bundle 'romanvbabenko/rails.vim'
 Bundle 'tComment'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rvm'
@@ -50,6 +50,11 @@ Bundle 'elixir-lang/vim-elixir'
 
 Bundle 'tpope/vim-dispatch'
 Bundle 'neomake/neomake'
+
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-projectionist'
 
 filetype plugin indent on     " required!
 syntax enable
@@ -101,7 +106,7 @@ set splitright
 "set autoindent
 
 " Automatically removing all trailing whitespace
-autocmd BufWritePre *.rb,*.erb :%s/\s\+$//e
+autocmd BufWritePre *.rb,*.erb,*.rake :%s/\s\+$//e
 
 " File types autodetection
 autocmd BufNewFile,BufRead *.txt setfiletype text
@@ -191,8 +196,13 @@ let g:vimrubocop_extra_args = '--rails'
 set mouse=""
 let g:netrw_liststyle=3
 
-colorscheme default
+let base16colorspace=256
+colorscheme base16-default
 set background=dark
 set re=1
 
 let g:markdown_fenced_languages = ['html', 'javascript', 'ruby', 'bash=sh']
+
+let g:neomake_ruby_rubocop_maker = {
+      \ 'args': ['--rails', '-D']
+      \ }
